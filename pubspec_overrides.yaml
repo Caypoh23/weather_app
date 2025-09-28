@@ -1,0 +1,8 @@
+# melos_managed_dependency_overrides: core,weather_localization,weather_uikit
+dependency_overrides:
+  core:
+    path: modules/core
+  weather_localization:
+    path: packages/localization
+  weather_uikit:
+    path: packages/uikit

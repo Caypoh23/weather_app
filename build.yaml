@@ -1,0 +1,8 @@
+targets:
+  $default:
+    builders:
+      json_serializable:json_serializable:
+        generate_for:
+          include:
+            - lib/core/**/models/**
+            - modules/**/

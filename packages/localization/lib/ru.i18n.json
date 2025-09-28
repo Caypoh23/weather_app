@@ -1,0 +1,35 @@
+{
+  "applicationName": "Weather App",
+  "appUpdate": {
+    "requiredUpdate": "Требуется обновление",
+    "description": "Пожалуйста, обновите приложение до последней версии, чтобы продолжить его использование.",
+    "update": "Обновить сейчас",
+    "skip": "Пропустить"
+  },
+  "errors": {
+    "noConnection": "Нет соединения",
+    "tokenExpiredOrInvalid": "Токен истек или недействителен",
+    "somethingWentWrong": "Что-то пошло не так",
+    "serverError": "Ошибка сервера",
+    "serviceUnavailable": "Сервис недоступен"
+  },
+  "shared": {
+    "ok": "OK",
+    "cancel": "Отмена",
+    "continueText": "Продолжить",
+    "retry": "Повторить",
+    "close": "Закрыть",
+    "refresh": "Обновить",
+    "tryAgain": "Попробовать снова",
+    "tryAgainLater": "Попробовать позже",
+    "retryLater": "Повторить позже",
+    "search": "Поиск",
+    "noResults": "Ничего не найдено"
+  },
+  "weather": {
+    "search": "Поиск города",
+    "searchCity": "Поиск города...",
+    "weather": "Погода",
+    "noCitiesFound": "Ничего не найдено"
+  }
+}

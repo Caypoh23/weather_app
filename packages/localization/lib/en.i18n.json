@@ -1,0 +1,35 @@
+{
+  "applicationName": "Weather App",
+  "appUpdate": {
+    "requiredUpdate": "Update Required",
+    "description": "Please update the app to the latest version to continue using it.",
+    "update": "Update Now",
+    "skip": "Skip"
+  },
+  "errors": {
+    "noConnection": "No Connection",
+    "tokenExpiredOrInvalid": "Token expired or invalid",
+    "somethingWentWrong": "Something went wrong",
+    "serverError": "Server Error",
+    "serviceUnavailable": "Service Unavailable"
+  },
+  "shared": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "continueText": "Continue",
+    "retry": "Retry",
+    "close": "Close", 
+    "refresh": "Refresh",
+    "tryAgain": "Try Again",
+    "tryAgainLater": "Try Again Later",
+    "retryLater": "Retry Later",
+    "search": "Search",
+    "noResults": "No Results Found"
+  },
+  "weather": {
+    "search": "Search City",
+    "searchCity": "Search City...",
+    "weather": "Weather",
+    "noCitiesFound": "No Cities Found"
+  }
+}

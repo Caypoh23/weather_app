@@ -1,0 +1,78 @@
+name: weather_app
+description: A new Flutter project.
+
+publish_to: none
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.8.1 <4.0.0'
+  flutter: "3.35.4"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  flutter_localizations:
+    sdk: flutter
+
+  # Firebase
+  firebase_core: ^4.1.1
+  firebase_analytics: ^12.0.2
+  firebase_messaging: ^16.0.2
+  firebase_crashlytics: ^5.0.2
+
+  # Utils
+  image: 4.5.4
+  camera: ^0.11.2
+  # device_preview: 1.2.0
+  flutter_native_splash: ^2.4.6
+  flutter_local_notifications: ^19.4.2
+
+  # Modules
+  core:
+    path: modules/core
+  
+  weather:
+    path: modules/weather
+
+  # uikit
+  weather_uikit:
+    path: packages/uikit
+
+  # Localization 
+  weather_localization:
+    path: packages/localization
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 6.0.0
+  import_sorter: 4.6.0
+
+  flutter_launcher_icons: ^0.14.4
+
+  # Code generation
+  freezed: 3.2.3
+  build_runner: 2.8.0
+  json_serializable: 6.11.1
+  flutter_gen_runner: 5.12.0
+  melos: 7.1.1  
+
+flutter_launcher_icons:
+  android: false
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+
+flutter_gen:
+  output: lib/gen
+  integrations:
+    flutter_svg: true
+    lottie: true
+  assets:
+    enabled: true
+    outputs:
+      class_name: Assets
+
+flutter:
+  uses-material-design: true

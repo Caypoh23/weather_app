@@ -1,0 +1,29 @@
+name: weather_localization
+description: This package contains localization.
+publish_to: none
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.8.1 <4.0.0'
+  flutter: "3.35.4"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  
+  # Code Generation
+  slang: 4.8.1
+  slang_flutter: 4.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  # Code Generation
+  build_runner: 2.8.0
+  slang_build_runner: 4.8.1
