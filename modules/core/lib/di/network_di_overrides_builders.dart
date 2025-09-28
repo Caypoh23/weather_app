@@ -11,7 +11,7 @@ import 'package:core/network/network/interceptors/lang_interceptor.dart';
 import 'package:core/network/network/network_config.dart';
 import 'package:core/network/network/network_error_handler_impl.dart';
 import 'package:core/providers.dart';
-import 'package:core/services/storage/local_storage/local_storage_key.dart';
+import 'package:core/storage/local_storage/local_storage_key.dart';
 
 List<Override> buildNetworkDiOverrides() => [
   aliceProvider.overrideWith((ref) => Alice()),

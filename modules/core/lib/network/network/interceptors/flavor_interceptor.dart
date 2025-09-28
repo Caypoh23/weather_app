@@ -2,7 +2,7 @@
 import 'package:core/exports/network.dart';
 import 'package:core/network/network/flavor.dart';
 import 'package:core/network/network/network_config.dart';
-import 'package:core/services/storage/flavor_storage/flavor_storage.dart';
+import 'package:core/storage/flavor_storage/flavor_storage.dart';
 
 class FlavorInterceptor extends QueuedInterceptor {
   FlavorInterceptor({

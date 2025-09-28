@@ -3,7 +3,7 @@ import 'dart:io';
 
 // Project imports:
 import 'package:core/exports/network.dart';
-import 'package:core/services/storage/language_storage/language_storage.dart';
+import 'package:core/storage/language_storage/language_storage.dart';
 
 class LangInterceptor extends QueuedInterceptor {
   LangInterceptor({required LanguageStorage languageStorage})

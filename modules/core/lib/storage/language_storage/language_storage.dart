@@ -2,7 +2,7 @@
 import 'dart:async';
 
 // Project imports:
-import 'package:core/services/storage/local_storage/local_storage.dart';
+import 'package:core/storage/local_storage/local_storage.dart';
 
 const String _languageKey = 'language';
 

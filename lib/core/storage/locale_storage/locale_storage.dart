@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:core/services/storage/language_storage/language_storage.dart';
+import 'package:core/storage/language_storage/language_storage.dart';
 import 'package:weather_localization/strings.g.dart';
 
 abstract class LocaleStorage {
