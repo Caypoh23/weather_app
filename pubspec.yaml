@@ -30,6 +30,10 @@ dependencies:
   flutter_local_notifications: ^19.4.2
 
   # Modules
+
+  authorization:
+    path: modules/authorization
+
   core:
     path: modules/core
   
@@ -43,6 +47,7 @@ dependencies:
   # Localization 
   weather_localization:
     path: packages/localization
+
 
 dev_dependencies:
   flutter_test:

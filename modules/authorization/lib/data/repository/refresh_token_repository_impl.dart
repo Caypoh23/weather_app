@@ -1,12 +1,14 @@
 // Dart imports:
 import 'dart:async';
 
-// Project imports:
+// Package imports:
 import 'package:core/network/refresh_token_repository.dart';
 import 'package:core/storage/local_storage/local_storage.dart';
 import 'package:core/storage/local_storage/local_storage_key.dart';
-import 'package:weather_app/features/refresh_token/data/data_source/remote/refresh_token_remote_data_source.dart';
-import 'package:weather_app/features/refresh_token/data/models/request/refresh_token_request.dart';
+
+// Project imports:
+import '../data_source/remote/refresh_token_remote_data_source.dart';
+import '../models/request/refresh_token_request.dart';
 
 const clientId = String.fromEnvironment('CITY_SEARCH_API_KEY');
 const clientSecret = String.fromEnvironment('CITY_SEARCH_API_SECRET');
