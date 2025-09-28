@@ -26,7 +26,7 @@ command:
       go_router: 16.2.4
 
       # Networking
-      dio: 5.4.3+1
+      dio: 5.9.0
       connectivity_plus: 4.0.1
 
       # Firebase Services

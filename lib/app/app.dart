@@ -41,8 +41,10 @@ class App extends ConsumerWidget {
 
     if (AppConfig.isDebug) {
       child = GestureDetector(
-        onLongPress: () =>
-            ref.read(appRouterProvider).router.go(DebugPanelScreenWrapper.path),
+        onLongPress: () => ref
+            .read(appRouterProvider)
+            .router
+            .push(DebugPanelScreenWrapper.path),
         child: child,
       );
     }

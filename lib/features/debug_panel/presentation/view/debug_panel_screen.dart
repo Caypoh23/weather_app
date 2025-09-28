@@ -1,8 +1,6 @@
 // Flutter imports:
 
 // Flutter imports:
-import 'package:core/storage/local_storage/local_storage.dart';
-import 'package:core/storage/local_storage/local_storage_key.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -10,6 +8,8 @@ import 'package:core/exports/restart_app.dart';
 import 'package:core/exports/router.dart';
 import 'package:core/network/network/network_config.dart';
 import 'package:core/services/package_info_service.dart';
+import 'package:core/storage/local_storage/local_storage.dart';
+import 'package:core/storage/local_storage/local_storage_key.dart';
 import 'package:weather_uikit/uikit.dart' as uikit;
 
 // Project imports:

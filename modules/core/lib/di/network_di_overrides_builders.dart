@@ -1,6 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:alice/model/alice_configuration.dart';
+
 // Project imports:
 import 'package:core/exports/alice.dart';
 import 'package:core/exports/di.dart';
@@ -15,8 +18,9 @@ import 'package:core/providers.dart';
 import 'package:core/storage/local_storage/local_storage_key.dart';
 
 List<Override> buildNetworkDiOverrides() => [
-  aliceProvider.overrideWith((ref) => Alice()),
-
+  aliceProvider.overrideWith(
+    (ref) => Alice(configuration: AliceConfiguration(showNotification: false)),
+  ),
   dioProvider.overrideWith((ref) => _initializeDioClient(ref)),
   connectivityServiceProvider.overrideWith(
     (ref) => ConnectivityServiceImpl(connectivity: Connectivity()),
@@ -74,9 +78,14 @@ Dio _initializeDioClient(Ref ref) {
     ),
   );
 
-  client.interceptors.addAll([
-    // if (AppConfig.isDebug) ref.read(aliceProvider).getDioInterceptor(),
-    if (AppConfig.isDebug)
+  final interceptors = <Interceptor>[];
+
+  if (AppConfig.isDebug) {
+    final aliceDioAdapter = AliceDioAdapter();
+    ref.read(aliceProvider).addAdapter(aliceDioAdapter);
+    interceptors.add(aliceDioAdapter);
+
+    interceptors.add(
       LogInterceptor(
         responseBody: true,
         requestBody: true,
@@ -88,7 +97,10 @@ Dio _initializeDioClient(Ref ref) {
               .forEach((match) => debugPrint(match.group(0)));
         },
       ),
-  ]);
+    );
+  }
+
+  client.interceptors.addAll(interceptors);
 
   return client;
 }

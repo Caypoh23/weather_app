@@ -31,9 +31,11 @@ class RefreshTokenRepositoryImpl implements RefreshTokenRepository {
       clientSecret: clientSecret,
     );
 
+    await _localStorage.setString(LocalStorageKey.accessToken.name, '');
+
     final response = await _remoteDataSource.refreshToken(request);
 
-    await _localStorage.setString(
+    _localStorage.setString(
       LocalStorageKey.accessToken.name,
       response.accessToken,
     );
