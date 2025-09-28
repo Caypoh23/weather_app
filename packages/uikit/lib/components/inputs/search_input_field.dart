@@ -92,7 +92,6 @@ class SearchInputField extends StatelessWidget {
       initialValue: initialValue,
       keyboardType: keyboardType,
       trailingIcon: trailingIcon,
-      size: InputFieldSize.small,
       captionIconPath: captionIconPath,
       inputFormatters: inputFormatters,
       textInputAction: textInputAction,

@@ -7,10 +7,10 @@ import 'package:core/network/refresh_token_repository.dart';
 import 'package:core/services/device_info_service.dart';
 import 'package:core/services/package_info_service.dart';
 import 'package:core/services/permission_service.dart';
+import 'package:core/services/url_launcher_service.dart';
 import 'package:core/storage/flavor_storage/flavor_storage.dart';
 import 'package:core/storage/language_storage/language_storage.dart';
 import 'package:core/storage/local_storage/local_storage.dart';
-import 'package:core/services/url_launcher_service.dart';
 
 /// Networking
 final aliceProvider = Provider<Alice>(

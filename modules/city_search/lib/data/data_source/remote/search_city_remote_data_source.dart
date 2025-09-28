@@ -11,7 +11,7 @@ import '../../models/request/get_cities_request.dart';
 import '../../models/response/get_cities_response.dart';
 
 abstract interface class SearchCityRemoteDataSource {
-  FutureOr<List<GetCitiesResponse>> getCities(GetCitiesRequest request);
+  FutureOr<List<GetCitiesResponse>> fetchCities(GetCitiesRequest request);
 }
 
 class SearchCityRemoteDataSourceImpl implements SearchCityRemoteDataSource {
@@ -22,7 +22,9 @@ class SearchCityRemoteDataSourceImpl implements SearchCityRemoteDataSource {
   final AuthRestClient _restClientService;
 
   @override
-  FutureOr<List<GetCitiesResponse>> getCities(GetCitiesRequest request) async {
+  FutureOr<List<GetCitiesResponse>> fetchCities(
+    GetCitiesRequest request,
+  ) async {
     return _restClientService.get<List<GetCitiesResponse>>(
       '${CitySearchUrls.amadeus}${CitySearchUrls.cities}',
       params: request.toJson(),

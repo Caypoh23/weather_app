@@ -49,16 +49,18 @@ class App extends ConsumerWidget {
 
     return MediaQuery(
       data: MediaQuery.of(context),
-      child: Overlay(
-        initialEntries: [
-          OverlayEntry(
-            builder: (_) => ErrorHandlerWidget(
-              bloc: ref.read(errorHandlerCubitProvider),
-              router: ref.read(appRouterProvider),
-              child: child ?? const SizedBox.shrink(),
+      child: uikit.FocusRemover(
+        child: Overlay(
+          initialEntries: [
+            OverlayEntry(
+              builder: (_) => ErrorHandlerWidget(
+                bloc: ref.read(errorHandlerCubitProvider),
+                router: ref.read(appRouterProvider),
+                child: child ?? const SizedBox.shrink(),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

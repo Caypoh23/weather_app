@@ -15,7 +15,6 @@ abstract class RestClientService {
     List<Interceptor> interceptors = const [],
   }) : _connectivityService = connectivityService,
        _errorHandler = errorHandler {
-    /// Добавление интерсепторов
     _client.interceptors.insertAll(0, interceptors);
   }
 
@@ -23,7 +22,6 @@ abstract class RestClientService {
   final ConnectivityService _connectivityService;
   final NetworkErrorHandler _errorHandler;
 
-  ///Обёртки запросов дио
   Future<T> get<T>(
     String url, {
     Map<String, dynamic>? body,

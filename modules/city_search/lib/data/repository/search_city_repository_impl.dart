@@ -17,7 +17,7 @@ class SearchCityRepositoryImpl implements SearchCityRepository {
 
   @override
   FutureOr<List<City>> getCities({required String searchText}) async {
-    final response = await _dataSource.getCities(
+    final response = await _dataSource.fetchCities(
       GetCitiesRequest(keyword: searchText),
     );
     return response.map((e) => e.toDomainModel()).toList();

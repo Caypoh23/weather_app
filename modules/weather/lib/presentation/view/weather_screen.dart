@@ -21,14 +21,9 @@ class WeatherScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.tr.weather.weather),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.info_outline),
-            onPressed: () => bloc.add(const ShowInfoEvent()),
-          ),
-        ],
+      appBar: uikit.AppBarInternal(
+        centerTitle: true,
+        title: context.tr.weather.weather,
       ),
       body: BlocBuilder<CheckWeatherBloc, CheckWeatherState>(
         bloc: bloc,
@@ -36,7 +31,7 @@ class WeatherScreen extends StatelessWidget {
         builder: (context, state) {
           return Stack(
             children: [
-              _ContentStateView(),
+              _ContentStateView(bloc),
               if (state.isActionLoading)
                 const Center(child: CircularProgressIndicator()),
             ],

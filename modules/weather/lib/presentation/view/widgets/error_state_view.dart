@@ -1,8 +1,9 @@
 part of '../weather_screen.dart';
 
 class _ErrorStateView extends StatelessWidget {
-  const _ErrorStateView(this.error);
+  const _ErrorStateView(this.error, this.bloc);
 
+  final CheckWeatherBloc bloc;
   final CheckWeatherError error;
 
   @override
@@ -11,11 +12,16 @@ class _ErrorStateView extends StatelessWidget {
       CheckWeatherError.noConnection => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Center(child: Text('No internet connection')),
+          Center(
+            child: Text(
+              context.tr.errors.noConnection,
+              style: context.baseTextStyle.base1,
+            ),
+          ),
           const SizedBox(height: 12),
           uikit.Button(
-            onTap: () =>
-                context.read<CheckWeatherBloc>().add(const RetryEvent()),
+            margin: const EdgeInsets.symmetric(horizontal: 24),
+            onTap: () => bloc.add(const RetryEvent()),
             text: context.tr.shared.retry,
           ),
         ],
@@ -23,11 +29,16 @@ class _ErrorStateView extends StatelessWidget {
       CheckWeatherError.serverError => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Center(child: Text('Something went wrong')),
+          Center(
+            child: Text(
+              context.tr.errors.somethingWentWrong,
+              style: context.baseTextStyle.base1,
+            ),
+          ),
           const SizedBox(height: 12),
           uikit.Button(
-            onTap: () =>
-                context.read<CheckWeatherBloc>().add(const RetryEvent()),
+            margin: const EdgeInsets.symmetric(horizontal: 24),
+            onTap: () => bloc.add(const RetryEvent()),
             text: context.tr.shared.retry,
           ),
         ],
@@ -35,11 +46,16 @@ class _ErrorStateView extends StatelessWidget {
       CheckWeatherError.serviceUnavailable => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Center(child: Text('Service unavailable')),
+          Center(
+            child: Text(
+              context.tr.errors.serviceUnavailable,
+              style: context.baseTextStyle.base1,
+            ),
+          ),
           const SizedBox(height: 12),
           uikit.Button(
-            onTap: () =>
-                context.read<CheckWeatherBloc>().add(const RetryEvent()),
+            margin: const EdgeInsets.symmetric(horizontal: 24),
+            onTap: () => bloc.add(const RetryEvent()),
             text: context.tr.shared.retry,
           ),
         ],

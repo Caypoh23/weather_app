@@ -1,28 +1,30 @@
 part of '../weather_screen.dart';
 
 class _ContentStateView extends StatelessWidget {
-  const _ContentStateView();
+  const _ContentStateView(this.bloc);
+
+  final CheckWeatherBloc bloc;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         BlocBuilder<CheckWeatherBloc, CheckWeatherState>(
+          bloc: bloc,
           buildWhen: (previous, current) =>
               previous.searchText != current.searchText,
           builder: (context, state) {
             return Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: uikit.SearchInputField(
                 label: context.tr.weather.search,
-                onChanged: (value) => context.read<CheckWeatherBloc>().add(
-                  SearchCityEvent(value),
-                ),
+                onChanged: (value) => bloc.add(SearchCityEvent(value)),
               ),
             );
           },
         ),
         BlocBuilder<CheckWeatherBloc, CheckWeatherState>(
+          bloc: bloc,
           buildWhen: (previous, current) => previous.weather != current.weather,
           builder: (context, state) {
             final weather = state.weather;
@@ -43,6 +45,7 @@ class _ContentStateView extends StatelessWidget {
         const SizedBox(height: 24),
         Expanded(
           child: BlocBuilder<CheckWeatherBloc, CheckWeatherState>(
+            bloc: bloc,
             buildWhen: (previous, current) =>
                 previous.error != current.error ||
                 previous.isLoading != current.isLoading ||
@@ -54,7 +57,7 @@ class _ContentStateView extends StatelessWidget {
 
               final error = state.error;
               if (error != null) {
-                return _ErrorStateView(error);
+                return _ErrorStateView(error, bloc);
               }
 
               final citiesList = state.citiesList;
@@ -73,8 +76,12 @@ class _ContentStateView extends StatelessWidget {
                     ),
                     onTap: () {
                       FocusManager.instance.primaryFocus?.unfocus();
-                      context.read<CheckWeatherBloc>().add(
-                        GetWeatherEvent(cityName: model.name),
+                      bloc.add(
+                        GetWeatherEvent(
+                          cityName: model.name,
+                          lat: model.lat,
+                          long: model.long,
+                        ),
                       );
                     },
                   );

@@ -4,5 +4,6 @@ targets:
       json_serializable:json_serializable:
         generate_for:
           include:
+            - lib/features/**
             - lib/core/**/models/**
             - modules/**/

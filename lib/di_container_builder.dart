@@ -3,6 +3,7 @@ import 'package:core/exports/di.dart';
 import 'package:core/exports/storage.dart';
 import 'package:core/providers.dart';
 import 'package:weather/di/check_weather_di_module.dart';
+import 'package:weather_app/features/refresh_token/di/di_overrides_builders.dart';
 
 // Project imports:
 import 'core/di/core_di_overrides_builders.dart';
@@ -34,5 +35,6 @@ Future<List<Override>> _buildOverrides() async {
     ...buildServiceDiOverrides(),
     ...buildCoreDiOverrodes(),
     ...buildCheckWeatherDiOverrides(),
+    ...buildRefreshTokenDiOverrides(),
   ];
 }

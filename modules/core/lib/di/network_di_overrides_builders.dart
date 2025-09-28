@@ -6,6 +6,7 @@ import 'package:core/exports/alice.dart';
 import 'package:core/exports/di.dart';
 import 'package:core/exports/network.dart';
 import 'package:core/network/network/flavor.dart';
+import 'package:core/network/network/interceptors/auth_interceptor.dart';
 import 'package:core/network/network/interceptors/flavor_interceptor.dart';
 import 'package:core/network/network/interceptors/lang_interceptor.dart';
 import 'package:core/network/network/network_config.dart';
@@ -17,9 +18,6 @@ List<Override> buildNetworkDiOverrides() => [
   aliceProvider.overrideWith((ref) => Alice()),
 
   dioProvider.overrideWith((ref) => _initializeDioClient(ref)),
-  // refreshTokenRepositoryProvider.overrideWith(
-  //   (ref) => RefreshTokenRepositoryImpl(),
-  // ),
   connectivityServiceProvider.overrideWith(
     (ref) => ConnectivityServiceImpl(connectivity: Connectivity()),
   ),
@@ -43,6 +41,7 @@ List<Override> buildNetworkDiOverrides() => [
       connectivityService: ref.watch(connectivityServiceProvider),
       refreshTokenRepository: ref.watch(refreshTokenRepositoryProvider),
       interceptors: [
+        AuthInterceptor(localStorage: ref.watch(localStorageProvider)),
         FlavorInterceptor(
           flavor: AppConfig.appFlavor,
           localStorage: ref.watch(flavorStorageProvider),

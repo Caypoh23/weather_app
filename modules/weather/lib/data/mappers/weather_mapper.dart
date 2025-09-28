@@ -4,8 +4,11 @@
 import '../../domain/models/weather.dart';
 import '../models/response/get_weather_response.dart';
 
+const _kelvinToCelsius = 273.15;
+
 extension WeatherMapper on GetWeatherResponse {
   Weather toDomainModel() {
-    return Weather(temp: main.temp);
+    final celsiusTemp = main.temp - _kelvinToCelsius;
+    return Weather(temp: double.parse(celsiusTemp.toStringAsFixed(2)));
   }
 }

@@ -7,12 +7,10 @@ sealed class AppFailure implements Exception {
   String toString() => 'message: $message';
 }
 
-/// Ошибка при потере соединения в общем
 class NoConnectionFailure extends AppFailure {
   const NoConnectionFailure({super.message = 'No Connection'});
 }
 
-/// Ошибка парсинга ответа
 class ParseFailure extends AppFailure {
   const ParseFailure({super.message = 'Response parse failure'});
 }
@@ -21,12 +19,10 @@ class CustomFailure extends AppFailure {
   const CustomFailure({required super.message});
 }
 
-/// Невалидный токен
 class InvalidTokenFailure extends AppFailure {
   const InvalidTokenFailure({super.message = 'Token expired or invalid'});
 }
 
-/// Сетевая ошибка
 abstract class NetworkFailure extends AppFailure {
   const NetworkFailure({
     super.message = 'Network error',
@@ -41,7 +37,6 @@ abstract class NetworkFailure extends AppFailure {
   }
 }
 
-/// Ошибка, которую возвращает сервер
 class ServerFailure<ErrorJsonT> extends NetworkFailure {
   const ServerFailure({
     super.message = 'Server error',

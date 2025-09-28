@@ -28,8 +28,6 @@ Future<void> initializeApp({required Flavor flavor}) async {
 
   final ProviderContainer diContainer = await buildDiContainer();
 
-  // await remoteConfigService.initialize();
-
   runApp(
     UncontrolledProviderScope(
       container: diContainer,

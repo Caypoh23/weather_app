@@ -8,6 +8,8 @@ import '../data_source/remote/check_weather_remote_data_source.dart';
 import '../mappers/weather_mapper.dart';
 import '../models/request/get_weather_request.dart';
 
+const appid = String.fromEnvironment('OPEN_WEATHER_API_KEY');
+
 class CheckWeatherRepositoryImpl implements CheckWeatherRepository {
   const CheckWeatherRepositoryImpl({
     required CheckWeatherRemoteDataSource dataSource,
@@ -21,7 +23,7 @@ class CheckWeatherRepositoryImpl implements CheckWeatherRepository {
     required double long,
   }) async {
     final response = await _dataSource.checkWeather(
-      GetWeatherRequest(lat: lat, lon: long, appid: 'your_api_key_here'),
+      GetWeatherRequest(lat: lat, lon: long, appid: appid),
     );
     return response.toDomainModel();
   }
