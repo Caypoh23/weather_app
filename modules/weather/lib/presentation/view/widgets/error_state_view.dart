@@ -9,56 +9,29 @@ class _ErrorStateView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return switch (error) {
-      CheckWeatherError.noConnection => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text(
-              context.tr.errors.noConnection,
-              style: context.baseTextStyle.base1,
-            ),
-          ),
-          const SizedBox(height: 12),
-          uikit.Button(
-            margin: const EdgeInsets.symmetric(horizontal: 24),
-            onTap: () => bloc.add(const RetryEvent()),
-            text: context.tr.shared.retry,
-          ),
-        ],
+      CheckWeatherError.noConnection => uikit.EmptyState(
+        viewModelBuilder: (context) => uikit.EmptyStateModel(
+          title: context.tr.errors.noConnection,
+          description: context.tr.shared.tryAgain,
+          buttonText: context.tr.shared.retry,
+          onButtonPressed: () => bloc.add(const RetryEvent()),
+        ),
       ),
-      CheckWeatherError.serverError => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text(
-              context.tr.errors.somethingWentWrong,
-              style: context.baseTextStyle.base1,
-            ),
-          ),
-          const SizedBox(height: 12),
-          uikit.Button(
-            margin: const EdgeInsets.symmetric(horizontal: 24),
-            onTap: () => bloc.add(const RetryEvent()),
-            text: context.tr.shared.retry,
-          ),
-        ],
+      CheckWeatherError.serverError => uikit.EmptyState(
+        viewModelBuilder: (context) => uikit.EmptyStateModel(
+          title: context.tr.errors.somethingWentWrong,
+          description: context.tr.shared.tryAgain,
+          buttonText: context.tr.shared.retry,
+          onButtonPressed: () => bloc.add(const RetryEvent()),
+        ),
       ),
-      CheckWeatherError.serviceUnavailable => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text(
-              context.tr.errors.serviceUnavailable,
-              style: context.baseTextStyle.base1,
-            ),
-          ),
-          const SizedBox(height: 12),
-          uikit.Button(
-            margin: const EdgeInsets.symmetric(horizontal: 24),
-            onTap: () => bloc.add(const RetryEvent()),
-            text: context.tr.shared.retry,
-          ),
-        ],
+      CheckWeatherError.serviceUnavailable => uikit.EmptyState(
+        viewModelBuilder: (context) => uikit.EmptyStateModel(
+          title: context.tr.errors.serviceUnavailable,
+          description: context.tr.shared.tryAgainLater,
+          buttonText: context.tr.shared.retry,
+          onButtonPressed: () => bloc.add(const RetryEvent()),
+        ),
       ),
     };
   }

@@ -33,7 +33,12 @@ class WeatherScreen extends StatelessWidget {
             children: [
               _ContentStateView(bloc),
               if (state.isActionLoading)
-                const Center(child: CircularProgressIndicator()),
+                Container(
+                  color: context.surfaceColors.dark.withValues(alpha: 0.3),
+                  child: const Center(
+                    child: uikit.LoadingIndicator(size: 40, strokeWidth: 4),
+                  ),
+                ),
             ],
           );
         },
